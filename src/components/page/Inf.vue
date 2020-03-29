@@ -1,12 +1,11 @@
 <template>
   <div class="main">
-    <div class="student_server">
+    <!-- <div class="student_server">
       <div class="inf_top">
         <span>学生服务</span>
       </div>
       <ul class="list">
         <li v-for="(student,index) in std_servers" @click="select(index)">
-          <!-- <i :class="student.class"></i> -->
           <svg class="icon" aria-hidden="true">
             <use :xlink:href="student.class"></use>
           </svg>
@@ -15,7 +14,7 @@
       </ul>
     </div>
     <div class="teacher_server">
-      <div class="inf_top"> 
+      <div class="inf_top">
         <span>教师服务</span>
       </div>
       <ul class="list">
@@ -26,7 +25,7 @@
           <p>{{teacher.title}}</p>
         </li>
       </ul>
-    </div>
+    </div> -->
     <div class="my_server">
       <div class="inf_top">
         <span>我的服务</span>
@@ -44,7 +43,7 @@
 </template>
 <script>
 import store from "@/vuex/store";
-import qs from "qs"
+import qs from "qs";
 export default {
   store,
   name: "Inf",
@@ -140,7 +139,7 @@ export default {
         "/tch_jiaocai/jiaocai",
         "/tch_ketang/ketang",
         "/tch_fudaoyuan/fudaoyuan",
-        "/tch_yuyue/my",
+        "/tch_yuyue/my"
       ],
       config: {
         headers: {
@@ -152,6 +151,7 @@ export default {
   },
   methods: {
     select: function(index) {
+      this.li = $(".list li");
       console.log(this.li.length);
       this.li.eq(index).animate(
         {
@@ -166,7 +166,8 @@ export default {
         }
       );
     },
-    selectAll(index){
+    selectAll(index) {
+      this.li = $(".list li");
       console.log(this.li.length);
       this.li.eq(index).animate(
         {
@@ -176,19 +177,22 @@ export default {
           console.log(111);
           this.$router.push({
             path: this.my_servers[index].entrance,
-            // query: { serve: index }
+            query: {
+              name: this.my_servers[index].name
+              // identity:this.my_servers[index].identity
+            }
           });
         }
       );
     }
   },
   mounted() {
-    this.config.headers.Authorization=sessionStorage.Authorization;
+    this.config.headers.Authorization = sessionStorage.Authorization;
     this.$store.commit("loginStatus", sessionStorage.getItem("isLogin"));
     if (this.$store.state.user.isLogin == 0) {
       this.$router.push("/login");
     }
-    
+
     //    this.$http.post("http://192.168.199.172:8068/getBaseList",{
     //     "pageNo":1,
     //     "pageSize":2,
@@ -196,12 +200,17 @@ export default {
     // }).then(res=>{
     //   console.log(res)
     // })
-    this.$http.post(this.$store.state.url + "authority/getModuleListByUser",qs.stringify({}),this.config)
-    .then(res=>{
-      console.log(res)
-      this.my_servers=res.data;
-    })
-    this.li = $(".list li");
+    this.$http
+      .post(
+        this.$store.state.url + "authority/getModuleListByUser",
+        qs.stringify({}),
+        this.config
+      )
+      .then(res => {
+        console.log(res);
+        this.my_servers = res.data;
+        
+      });
   }
 };
 </script>
@@ -211,12 +220,13 @@ export default {
   width: 800px;
   padding: 10px;
   margin: 0 auto;
+  min-height: 80%;
   /* background-color: #d6e3f2; */
   background-color: white;
   margin-top: 20px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
   /* position: relative; */
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   border-radius: 10px;
   min-width: 180px;
 }

@@ -2,6 +2,9 @@
   <div id="app">
     <topNav v-if="!(path==='/login')"></topNav>
     <router-view></router-view>
+    <div class="footer" v-if="path=='/'">
+      <div>版权所有 © 华北电力大学<a href="www.beian.miit.gov.cn">桂ICP备19002003号</a></div>
+    </div>
     <!-- <router-view name="left_nav"/>
     <router-view name="main_inf"/> -->
     <!-- <router-view name="main_function"/> -->
@@ -62,6 +65,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   background: url("assets/huadian.jpg");
+  /* background-image: 'assets/huadian.jpg'; */
   background-color: #bfc2ed;
   /* background-size: 100% 100%;*/
   background-repeat: round;
@@ -70,5 +74,19 @@ export default {
   background-attachment: fixed;
   display: block;
   clear: both;
+}
+.footer{
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 0.9em;
+  position: absolute;
+  bottom: 0px;
+
+}
+.footer a{
+  color: white;
+  margin-left: 50px;
+  text-decoration: none
 }
 </style>

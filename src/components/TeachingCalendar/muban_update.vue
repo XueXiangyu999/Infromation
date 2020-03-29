@@ -1,5 +1,6 @@
 <template>
   <div id="clendar_main">
+    <div style="margin-left:10%">
     <h3>上传教学日历模板：</h3>
     <el-form ref="form" :model="form" label-width="90px">
       <el-form-item label="点击上传：">
@@ -26,6 +27,7 @@
         <el-link v-else type="primary" :underline="false" disabled>下载</el-link>
       </el-form-item>
     </el-form>
+    </div>
   </div>
 </template>
 
@@ -107,12 +109,12 @@ export default {
 
 <style>
 #clendar_main {
-  padding-top: 3%;
+  /* padding-top: 3%;
   padding-left: 5%;
-  padding-bottom: 30px;
+  padding-bottom: 30px; */
   background-color: rgb(255, 255, 255);
-  margin-left: 25%;
-  margin-top: 3%;
+  /* margin-left: 25%;
+  margin-top: 3%; */
   text-align: left;
 }
 </style>

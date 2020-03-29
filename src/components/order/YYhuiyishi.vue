@@ -74,7 +74,7 @@ export default {
     },
     deleteRow(index, rows) {
       this.$http
-        .delete(this.$store.state.url + "appointment/manager/lab/" + rows[index].id,null,this.config)
+        .delete(this.$store.state.url + "appointment/manager/lab/" + rows[index].id,this.config)
         .then(res => {
           console.log(res);
           this.$http
@@ -84,7 +84,7 @@ export default {
               let getData = res.data;
               for (let i = 0; i < res.data.length; i++) {
                 this.$http
-                  .get("api/manager/lab/" + getData[i].id,this.config)
+                  .get(this.$store.state.url + "appointment/manager/lab/" + getData[i].id,this.config)
                   .then(res => {
                     console.log(res);
                     this.tableData=[];

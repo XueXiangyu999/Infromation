@@ -248,8 +248,6 @@ export default {
       .then(res => {
         console.log(res.data);
         this.XRWJ = res.data;
-        // _this.WJ = res.data;
-        // _this.XRWJ = res.data;
       })
       .catch(res => {
         console.log(res);

@@ -1,6 +1,6 @@
 <template>
   <div id="clendar_main">
-    <div>
+    <div style="margin-left:10%">
       <h2>上传 {{month}} 月日历：</h2>
       <h3>模板下载：</h3>
       <div id="clendar_muban">
@@ -20,7 +20,7 @@
         </el-button>
       </div>
     </div>
-    <div>
+    <div style="margin-left:10%">
       <h3>上传日历：</h3>
       <div v-if="status==0">
         <el-steps :space="200" :active="1" finish-status="success">
@@ -171,12 +171,12 @@ export default {
 
 <style>
 #clendar_main {
-  padding-top: 3%;
+  /* padding-top: 3%;
   padding-left: 5%;
-  padding-bottom: 30px;
+  padding-bottom: 30px; */
   background-color: rgba(255, 255, 255, 0.9);
-  margin-left: 25%;
-  margin-top: 3%;
+  /* margin-left: 25%;
+  margin-top: 3%; */
   text-align: left;
 }
 #clendar_muban {

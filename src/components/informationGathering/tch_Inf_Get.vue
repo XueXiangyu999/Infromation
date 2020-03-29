@@ -372,9 +372,9 @@ export default {
 <style>
 #tch_guanli {
   background-color: rgba(255, 255, 255, 0.9);
-  margin-left: 20%;
+  /* margin-left: 20%; */
   margin-top: 1%;
-  width: 75%;
+  /* width: 75%; */
   height: 100%;
   text-align: left;
 }

@@ -145,7 +145,7 @@ export default {
 #admon_calendar {
   font-size: 13px;
   height: 100%;
-  width: 100%;
+  /* width: 100%; */
   background: rgba(255, 255, 255, 0.85);
 }
 #fileList {

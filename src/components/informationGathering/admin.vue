@@ -430,12 +430,12 @@ export default {
 #app {
   color: rgba(255, 255, 255, 0);
 }
-#admain_information {
+/* #admain_information {
   height: 100%;
   width: 100%;
   background: rgba(255, 255, 255, 0.85);
   padding-bottom: 40px;
-}
+} */
 #userList {
   height: 100%;
   width: 90%;

@@ -371,6 +371,7 @@ export default {
     if(this.$store.state.user.isLogin==0){
         this.$router.push('/login')
     }
+    console.log(this.$store.state.user.Authorization)
     var Authorization=this.$store.state.user.Authorization 
       $.ajax({
       headers: { Authorization: Authorization },
@@ -427,8 +428,8 @@ export default {
     /* height: 100%; */
 }
 #release_main{
-    margin-left: 20%;
-    margin-top: 150px;
+    /* margin-left: 20%;
+    margin-top: 150px; */
     width: 700px;
     height: 100%;
     background-color: white;

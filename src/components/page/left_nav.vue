@@ -45,8 +45,8 @@ export default {
     change(index) {
       // this.$router.push({path:this.$store.state.router[this.$route.query.serve][index],query:{serve:this.$route.query.serve}});
       this.$router.push({
-        path: this.$store.state.router[this.$route.query.serve][index],
-        query: { serve: this.$route.query.serve, opt: index }
+        path: this.options[index].path,
+        query: this.$route.query
       });
     }
   },
@@ -68,8 +68,11 @@ export default {
     // console.log(Myheight);
     // $(".left_Nav").css("height", Myheight + "px");
     // $(".INfor_main_right").css("height", Myheight + "px");
-    this.title = this.$store.state.servers[this.$route.query.serve];
-    this.options = this.$store.state.left_nav[this.$route.query.serve];
+    this.$store.commit('getOptions',[this.$route.query.name,this.$route.query.identity])
+    this.options=this.$store.state.options;
+    console.log(this.options)
+    this.title=this.$route.query.name
+    // this.options = this.$store.state.left_nav[this.$route.query.serve];
     if(this.$route.path=='/std_information'||this.$route.path=='/tch_information'||this.$route.path=='/admin_information'){
       this.jkflag=false
     }

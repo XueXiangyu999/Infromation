@@ -43,7 +43,9 @@
       <el-button type="success" style="float:left;margin:10px 20px 30px 40px" @click="next">立即提交</el-button>
       <!-- <el-button type="" style="float:left;margin-top:10px" @click="reset">重置</el-button> -->
     </div>
-    <div v-if="active==2"></div>
+    <div v-if="active==2">
+      <p style="margin-top:30px;color:red;font-size:1.5em">您的预约已成功提交,请等侯管理员处理</p> 
+    </div>
   </div>
 
 </template>
@@ -502,7 +504,7 @@ export default {
     GetBooksByWeek(week) {
       console.log(week);
       this.$http
-        .get("api/book/common/" + week,this.config)
+        .get(this.$store.state.url + "appointment/book/common/" + week,this.config)
         .then(res => {
           console.log(res.data);
           for (let i = 0; i < 5; i++) {

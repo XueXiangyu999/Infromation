@@ -4,7 +4,7 @@ Vue.use(Vuex);
 const state = {
     // url: 'http://47.95.246.40:8080/',
     url: 'http://47.95.246.40:8080/',
-    YYurl:'http://47.95.246.40:8080/',
+    YYurl: 'http://47.95.246.40:8080/',
     // YYurl:'http://47.94.215.104:8082/',
     user: {
         isLogin: 0,
@@ -30,6 +30,177 @@ const state = {
         '辅导员模块',
         '我要预约',
     ],
+    leftNav: [
+        {
+            name: '信息收集',
+            common: [
+                {
+                    title: '填写信息',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/getinformation/std_Getnformaition',
+                },
+            ],
+            teacher: [
+                {
+                    title: '填写信息',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/getinformation/tch_Getnformaition',
+                },
+            ],
+            admin: [
+                {
+                    title: '发布收集',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/getinformation/tch_release',
+                },
+                {
+                    title: '填写信息',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/getinformation/admin_Getnformaition',
+                },
+                {
+                    title: '信息管理',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/getinformation/tch_Administration',
+                },
+            ]
+        },
+        {
+            name: '我要预约',
+            common: [
+                {
+                    title: '我的预约',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_yuyue/my',
+                },
+                {
+                    title: '实验室预约',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_yuyue/SYsteps',
+                },
+                {
+                    title: '会议室预约',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_yuyue/HYsteps',
+                },
+            ],
+            admin: [
+                {
+                    title: '实验室管理',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_yuyue/shiyanshi',
+                },
+                {
+                    title: '会议室管理',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_yuyue/huiyishi',
+                },
+                {
+                    title: '实验室管理员',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_yuyue/admin',
+                },
+                {
+                    title: '会议室管理员',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_yuyue/Hadmin',
+                },
+            ]
+        },
+        {
+            name: '文件下载',
+            common: [
+                {
+                    title: '文件下载',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_wenjian/wenjian',
+                },
+            ],
+            admin: [
+                {
+                    title: '文件下载',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/tch_wenjian/wenjian',
+                },
+            ]
+        },
+        {
+            name: '人员信息管理',
+            common: [
+                {
+                    title: '我的信息',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/information/std_information',
+                },
+            ],
+            teacher: [
+                {
+                    title: '我的信息',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/information/tch_information',
+                },
+            ],
+            admin: [
+                {
+                    title: '我的信息',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/information/admin_informaition',
+                },
+            ]
+        },
+        {
+            name: '教学日历',
+            common: [
+                {
+                    title: '日历更新',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/tch_clendar_update',
+                },
+                {
+                    title: '日历寻找',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/tch_clendar_lookFor',
+                },
+                {
+                    title: '日历考察',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/tch_clendar_examine',
+                },
+            ],
+            teacher: [
+                {
+                    title: '日历更新',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/tch_clendar_update',
+                },
+                {
+                    title: '日历寻找',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/tch_clendar_lookFor',
+                },
+                {
+                    title: '日历考察',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/tch_clendar_examine',
+                },
+
+            ],
+            admin: [
+                {
+                    title: '日历模板',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/muban_update',
+                },
+                {
+                    title: '日历管理',
+                    iclass: 'icon iconfont icon-zhanghaoguanli',
+                    path: '/clendar/admin_clendar',
+                },
+
+            ]
+        },
+    ],
+    options: null,
     left_nav: [
         [
             {
@@ -174,7 +345,7 @@ const state = {
             },
             {
                 iclass: 'icon iconfont icon-zhanghaoguanli',
-                title: '社团活动管理', 
+                title: '社团活动管理',
             },
             {
                 iclass: 'icon iconfont icon-zhanghaoguanli',
@@ -186,18 +357,6 @@ const state = {
                 iclass: 'icon iconfont icon-zhanghaoguanli',
                 title: '实验室管理',
             },
-            // {
-            //     iclass: 'icon iconfont icon-zhanghaoguanli',
-            //     title: '预约管理',
-            // },
-            // {
-            //     iclass: 'icon iconfont icon-zhanghaoguanli',
-            //     title: '我要预约',
-            // },
-            // {
-            //     iclass: 'icon iconfont icon-zhanghaoguanli',
-            //     title: '学期设置',
-            // },
             {
                 iclass: 'icon iconfont icon-zhanghaoguanli',
                 title: '预约进度',
@@ -222,7 +381,7 @@ const state = {
                 iclass: 'icon iconfont icon-zhanghaoguanli',
                 title: '会议室预约',
             },
-            
+
         ],
     ],
 
@@ -273,7 +432,7 @@ const state = {
     ],
     router: [
         [
-            
+
         ],
         [
 
@@ -367,6 +526,31 @@ const mutations = {
             state.user.Authorization = sessionStorage.getItem('Authorization')
         }
     },
+    getOptions(state, data) {
+        console.log(data)
+        state.leftNav.forEach(element => {
+            // console.log(element.name)
+            // console.log(data[0])
+            if (element.name == data[0]) {
+                // if(data[1]=='common'){
+                //     console.log(element.common)
+                //     return element.common
+                // }
+                switch (data[1]) {
+                    //判断人员的类型来选择左边栏的构建
+                    case 'admin':
+                        state.options = element.admin;
+                        break;
+                    case 'common':
+                        state.options = element.common;
+                        break;
+                    case 'teacher':
+                        state.options = element.teacher;
+                        break;
+                }
+            }
+        });
+    }
 }
 export default new Vuex.Store({
     state,

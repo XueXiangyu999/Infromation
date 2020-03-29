@@ -1,5 +1,4 @@
 <template>
-
   <div class="Steps">
     <el-steps :active="active" finish-status="success" class="step">
       <el-step title="选择实验室"></el-step>
@@ -21,7 +20,7 @@
           <el-select class="selectYY" v-model="Select_week" @change='GetBooksByWeek(Select_week)'>
             <el-option v-for="week in weeks" :key="week" :value="week" :label="week"></el-option>
           </el-select>
-          周
+          周  
         </span>
         <span class="TimePosition">日期： {{1}} 至 {{1}} 实验地点：{{labs[labChoice].place}} 实验室容量：{{labs[labChoice].stu_num}}</span>
         <!-- <el-button class="CTT" @click="Create_TimeTable" type="success">生成课表</el-button> -->
@@ -95,7 +94,9 @@
       <el-button type="success" style="float:left;margin:10px 20px 30px 40px" @click="next">立即提交</el-button>
       <el-button type="" style="float:left;margin-top:10px" @click="reset">重置</el-button>
     </div>
-    <div v-if="active==3"></div>
+    <div v-if="active==3">
+      <p style="margin-top:30px;color:red;font-size:1.5em">您的预约已成功提交,请等侯管理员处理</p> 
+    </div>
   </div>
 
 </template>
@@ -578,7 +579,7 @@ export default {
     GetBooksByWeek(week) {
       console.log(week);
       this.$http
-        .get("api/book/common/" + week,this.config)
+        .get(this.$store.state.url + "appointment/book/common/" + week,this.config)
         .then(res => {
           console.log(res.data);
           for (let i = 0; i < 5; i++) {

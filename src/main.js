@@ -9,6 +9,7 @@ import $ from 'jquery'
 import axios from 'axios'
 import JsonExcel from "vue-json-excel"
 import qs from 'qs'
+import store from './vuex/store'
 
 Vue.component("downloadExcel", JsonExcel)
 Vue.use(ElementUI);
@@ -19,6 +20,7 @@ Vue.prototype.$http = axios
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   components: { App },
   template: '<App/>'

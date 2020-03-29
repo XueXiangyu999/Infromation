@@ -61,8 +61,8 @@ export default {
       activeName: "first",
       TBvalue1: 1,
       TBvalue2: 1,
-      TBoptions1: [],
-      TBoptions2: [],
+      TBoptions1: [1],
+      TBoptions2: [1],
       tableData_show: [],
       tableDataM_show: [],
       showCols: [
@@ -103,7 +103,7 @@ export default {
         },
         {
           label: "会议室地点",
-          prop: "place"
+          prop: "room_place"
         },
         {
           label: "预约人数",
@@ -147,33 +147,42 @@ export default {
       });
     },
     MeditRow(index, data) {
-      console.log(data[index])
+      console.log(data[index]);
       this.$router.push({
         path: "/tch_yuyue/HYsteps?serve=14&opt=6",
-        
+
         query: {
-          
           room_id: data[index].room_id,
           room_name: data[index].room_name,
           remark: data[index].remark,
           number: data[index].number,
-          book_time: data[index].book_time,
+          book_time: data[index].book_time
         }
       });
     },
-    change(value) {
-      this.TBvalue1 = value;
-      this.setLabData();
+    change(value,index) {
+      switch (index) {
+        case 1:
+          this.TBvalue1 = value;
+          this.setLabData();
+          break;
+        case 2:
+          this.TBvalue2 = value
+          this.setMeetData();
+      }
     },
     deleteRow(index, table) {
       this.$http
-        .delete(this.$store.state.url + "appointment/manager/book/" + table[index].id, JSON.stringify({}),this.config)
+        .delete(
+          this.$store.state.url + "appointment/manager/book/" + table[index].id,
+          this.config
+        )
         .then(res => {
           console.log(res);
           if (res.data.code == 1) {
             // this.$http
             //   .get(this.$store.state.url + "appointment/book/" + this.teacherID, JSON.stringify({}), {
-            //     headers: {
+            //     headers: {·
             //       Authorization: null,
             //       "Content-Type": "application/json"
             //     }
@@ -193,7 +202,12 @@ export default {
     },
     MdeleteRow(index, table) {
       this.$http
-        .delete(this.$store.state.url + "appointment/manager/Rbook/" + table[index].id, JSON.stringify({}), this.config)
+        .delete(
+          this.$store.state.url +
+            "appointment/manager/Rbook/" +
+            table[index].id,
+          this.config
+        )
         .then(res => {
           console.log(res);
           if (res.data.code == 1) {
@@ -218,9 +232,9 @@ export default {
         });
     },
     setLabData() {
-      console.log(this.config)
+      console.log(this.config);
       this.$http
-        .get(this.$store.state.url + "appointment/book/" + this.teacherID, this.config)
+        .get(this.$store.state.url + "appointment/book", this.config)
         .then(res => {
           console.log(res);
           this.tableData = res.data;
@@ -234,13 +248,7 @@ export default {
             var termStart = new Date("2019/01/01");
             termStart.setDate(termStart.getDate() + element.week * 7);
             this.tableData[index].book_time =
-              termStart.getFullYear() +
-              "-" +
-              (termStart.getMonth() + 1) +
-              "-" +
-              termStart.getDate() +
-              " " +
-              book_course;
+              "第" + this.tableData[index].week + "周 " + book_course;
           });
           this.tableData_show = this.tableData.slice(
             (this.TBvalue1 - 1) * 10,
@@ -259,7 +267,7 @@ export default {
     },
     setMeetData() {
       this.$http
-        .get(this.$store.state.url + "appointment/room/" + this.teacherID,  this.config)
+        .get(this.$store.state.url + "appointment/room", this.config)
         .then(res => {
           console.log(res);
           this.tableDataM = res.data;
@@ -285,7 +293,7 @@ export default {
             (this.TBvalue2 - 1) * 10,
             this.TBvalue2 * 10
           );
-          console.log(this.tableDataM_show)
+          console.log(this.tableDataM_show);
           let op = [];
           for (let i = 0; i <= this.tableDataM.length / 10; i++) {
             op.push(i + 1);
@@ -299,7 +307,7 @@ export default {
     }
   },
   mounted() {
-    this.config.headers.Authorization=sessionStorage.Authorization;
+    this.config.headers.Authorization = sessionStorage.Authorization;
     console.log(this.$route.query.opt);
     sessionStorage.setItem("nowActive", this.$route.query.opt);
     this.setLabData();

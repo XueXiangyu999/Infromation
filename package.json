@@ -15,12 +15,14 @@
     "element-ui": "^2.10.1",
     "file-saver": "^2.0.2",
     "vue": "^2.5.2",
+    "vue-json-excel": "^0.2.98",
     "vue-router": "^3.0.1",
     "vuex": "^3.1.1",
     "wangeditor": "^3.1.1",
     "xlsx": "^0.14.5"
   },
   "devDependencies": {
+    "crypto-js": "^^3.1.9-1",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",

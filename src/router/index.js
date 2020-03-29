@@ -123,16 +123,16 @@ export default new Router({
         }
       ],
     },
-    {
-      path: '/tch_release',
-      component: Left_nav,
-      children: [
-        {
-          path: 'release',
-          component: release,
-        }
-      ],
-    },
+    // {
+    //   path: '/tch_release',
+    //   component: Left_nav,
+    //   children: [
+    //     {
+    //       path: 'release',
+    //       component: release,
+    //     }
+    //   ],
+    // },
     {
       path: '/std_xinxi',
       component: Left_nav,
@@ -546,7 +546,7 @@ export default new Router({
           path: 'add_hui',
           component: AddYYH
         },
-        
+
         {
           path: 'huiyishi',
           component: YYhuiyishi
@@ -571,6 +571,10 @@ export default new Router({
       path: '/404',
       component: error,
     },
+    // {
+    //   path: '/information',
+    //   component: Left_nav,
+    //   children: [
     {
       path: '/std_information',
       component: std_information,
@@ -586,56 +590,72 @@ export default new Router({
       component: admin_informaition,
       name: 'admin_informaition',
     },
+    //   ]
+    // },
     {
-      path: '/admin_Getnformaition',
-      component: admin_Getnformaition,
-      name: 'admin_Getnformaition',
+      path: '/getinformation',
+      component: Left_nav,
+      children: [
+        {
+          path: 'admin_Getnformaition',
+          component: admin_Getnformaition,
+          name: 'admin_Getnformaition',
+        },
+        {
+          path: 'std_Getnformaition',
+          component: std_Getnformaition,
+          name: 'std_Getnformaition',
+        },
+        {
+          path: 'tch_Getnformaition',
+          component: tch_Getnformaition,
+          name: 'tch_Getnformaition',
+        },
+        {
+          path: 'tch_release',
+          component: tch_release,
+          name: 'tch_release',
+        },
+        {
+          path: 'tch_Administration',
+          component: tch_Administration,
+          name: 'tch_Administration',
+        },
+      ]
     },
+
     {
-      path: '/std_Getnformaition',
-      component: std_Getnformaition,
-      name: 'std_Getnformaition',
+      path: '/clendar',
+      component: Left_nav,
+      children: [
+        {
+          path: 'tch_clendar_update',
+          component: tch_clendar_update,
+          name: 'tch_clendar_update',
+        },
+        {
+          path: 'tch_clendar_lookFor',
+          component: tch_clendar_lookFor,
+          name: 'tch_clendar_lookFor',
+        },
+        {
+          path: 'tch_clendar_examine',
+          component: tch_clendar_examine,
+          name: 'tch_clendar_examine',
+        },
+        {
+          path: 'admin_clendar',
+          component: admin_clendar,
+          name: 'admin_clendar',
+        },
+        {
+          path: 'muban_update',
+          component: muban_update,
+          name: 'muban_update',
+        },
+      ]
     },
-    {
-      path: '/tch_Getnformaition',
-      component: tch_Getnformaition,
-      name: 'tch_Getnformaition',
-    },
-    {
-      path: '/tch_release',
-      component: tch_release,
-      name: 'tch_release',
-    },
-    {
-      path: '/tch_Administration',
-      component: tch_Administration,
-      name: 'tch_Administration',
-    },
-    {
-      path: '/tch_clendar_update',
-      component: tch_clendar_update,
-      name: 'tch_clendar_update',
-    },
-    {
-      path: '/tch_clendar_lookFor',
-      component: tch_clendar_lookFor,
-      name: 'tch_clendar_lookFor',
-    },
-    {
-      path: '/tch_clendar_examine',
-      component: tch_clendar_examine,
-      name: 'tch_clendar_examine',
-    },
-    {
-      path: '/admin_clendar',
-      component: admin_clendar,
-      name: 'admin_clendar',
-    },
-    {
-      path: '/muban_update',
-      component: muban_update,
-      name: 'muban_update',
-    },
+
 
   ]
 }

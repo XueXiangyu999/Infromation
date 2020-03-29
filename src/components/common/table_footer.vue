@@ -57,7 +57,7 @@ export default {
   float: left;
   height: 30px;
   width: 60px;
-  padding: 0;
+  padding: 0 !important;
   font-size: 0.7em;
 }
 .el-selectTB {
