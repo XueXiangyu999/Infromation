@@ -26,7 +26,7 @@
           <i class="icon iconfont icon-shezhi">
           </i>
           <ul class="option">
-            <li class="header_options" v-for="option in options" @click="jump(index)" :key="option.name">{{option.text}}</li>
+            <li class="header_options" v-for="option in options" @click="jump(option.id)" :key="option.name">{{option.text}}</li>
           </ul>
         </li>
         <li class="top_opt" @click="backhome">
@@ -47,7 +47,7 @@ export default {
         {
           id: 1,
           name: "1",
-          text: "我的信息",
+          text: "退出登陆",
         },
         // {
         //   id: 2,
@@ -73,9 +73,14 @@ export default {
     jump(index){
       switch(index){
         case 1:
-          this.$router.push('/std_information')
+            this.outLogin()
         break;
       }
+    },
+    outLogin(){
+      sessionStorage.Authorization=null
+      this.$store.commit("loginStatus", 0);
+      this.$router.push('/login')
     },
     down: function(index) {
       this.option.eq(index).css({

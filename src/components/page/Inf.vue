@@ -187,11 +187,18 @@ export default {
     }
   },
   mounted() {
-    this.config.headers.Authorization = sessionStorage.Authorization;
-    this.$store.commit("loginStatus", sessionStorage.getItem("isLogin"));
+    if(sessionStorage){
+          this.config.headers.Authorization = sessionStorage.Authorization||null;
+
+            this.$store.commit("loginStatus", sessionStorage.getItem("isLogin"));
     if (this.$store.state.user.isLogin == 0) {
       this.$router.push("/login");
     }
+    }else{
+      this.$router.push("/login");
+    }
+
+
 
     //    this.$http.post("http://192.168.199.172:8068/getBaseList",{
     //     "pageNo":1,

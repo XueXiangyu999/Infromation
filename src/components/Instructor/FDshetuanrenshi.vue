@@ -1,6 +1,6 @@
 <template>
   <div class="FDshetuanrenshi">
-    <el-table :data="tableData" cell-style="padding:0" style="width: 95%;margin:0 auto" :cell-style="{padding:'0px'}">
+    <el-table :data="tableData" style="width: 95%;margin:0 auto" :cell-style="{padding:'0px'}">
       <el-table-column prop="name" label="社团名称">
       </el-table-column>
       <el-table-column prop="cpname" label="负责人">
